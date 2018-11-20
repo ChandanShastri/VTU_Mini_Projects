@@ -8,7 +8,7 @@
 if(isset($_POST['Ename']))
 {
     include "config.php";
-    $pdf = addslashes(file_get_contents($_FILES['pdf']['tmp_name'])); 
+    $pdf = addslashes(file_get_contents($_FILES['pdf']['tmp_name']));
 
 $event="INSERT INTO Assignments VALUES ('".$_POST['Ename']."', '".$_POST['Esubject']."','".$_POST['Edate']."', '".$_POST['Etime']."', '".$pdf."')";
 //echo $event;
@@ -21,6 +21,7 @@ else
 echo "<br>Assignment already exists...!";
 
 mysqli_close($sccon);
+
 }
 
 ?>
@@ -41,9 +42,9 @@ mysqli_close($sccon);
         Ann. Date : <input name="Edate" type="date" required><br><br>
         Submission Time : <input name="Etime" type="date" required><br><br>
         <input type="file" name="pdf" >
-        
-       <br>    
-    <hr> 
+
+       <br>
+    <hr>
         <button type="submit">Add Assignment </button>
         </h4>
         </form>
