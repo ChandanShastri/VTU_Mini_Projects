@@ -10,7 +10,7 @@ if(isset($_POST['Ename']))
     include "config.php";
     $pdf = addslashes(file_get_contents($_FILES['pdf']['tmp_name']));
 
-$event="INSERT INTO Assignments VALUES ('".$_POST['Ename']."', '".$_POST['Esubject']."','".$_POST['Edate']."', '".$_POST['Etime']."', '".$pdf."')";
+$event="INSERT INTO Assignments (ASSG_Name,Subject,Date,SDate,PDF) VALUES ('".$_POST['Ename']."', '".$_POST['Esubject']."','".$_POST['Edate']."', '".$_POST['Etime']."', '".$pdf."')";
 //echo $event;
 $result = mysqli_query($sccon,$event);
 if($result==1)
