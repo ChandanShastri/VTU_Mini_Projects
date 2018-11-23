@@ -31,7 +31,7 @@ if(isset($_POST['user']))
   $user=$_POST['user'];
   $pass=$_POST['pass'];
   $event="SELECT * FROM users where user='".$user."' AND pass='".$pass."'";
-  echo $event;
+  //echo $event;
   $result = mysqli_query($sccon,$event);
   if(mysqli_num_rows($result)>0)
   {
@@ -41,7 +41,7 @@ if(isset($_POST['user']))
 
   }
   else {
-    echo "Username or Password is Wrong";
+    echo "<center><font color='red'><b>Username or Password is Wrong</b></font></center><br>";
   }
 
 }
@@ -55,3 +55,6 @@ if(isset($_POST['user']))
     <button type="submit">Login</button>
   </form>
 </center>
+</body>
+<!-- crshastri@gmail.com -->
+</html>
