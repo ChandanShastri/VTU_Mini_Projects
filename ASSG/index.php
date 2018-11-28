@@ -28,7 +28,8 @@
     <body><br><br><center>
         <h1> Assignment Management System </h1><br>
         <a href="add.php"><button class="btn btn-primary">Manage all Assignment</button></a>&nbsp;
-        <a href="view.php"><button class="btn btn-success">View all Assignments</button></a>
+        <a href="view.php"><button class="btn btn-success">View all Assignments</button></a><br><br>
+        <a href="addmember.php"><button class="btn btn-warning">Register New Student</button></a>
         </center>
 
     </body>
