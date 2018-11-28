@@ -13,8 +13,9 @@ if(isset($_POST['name']))
 {
 
     $pdf = addslashes(file_get_contents($_FILES['pdf']['tmp_name']));
+    $usnx=strtoupper($_POST['usn']);
 
-$event="INSERT INTO students VALUES ('".$_POST['name']."','".$_POST['password']."', '".$_POST['usn']."')";
+$event="INSERT INTO students VALUES ('".$_POST['name']."','".$_POST['password']."', '".$usnx."')";
 //echo $event;
 $result = mysqli_query($sccon,$event);
 if($result==1)

@@ -18,8 +18,8 @@
 </nav>
 <body><center><h3>All Assignments</h3><br>
 <?php
-
-
+session_start();
+if(isset($_SESSION['usn'])){
 
 include "config.php";
 
@@ -39,11 +39,17 @@ while($row = mysqli_fetch_array($result)) {
     echo "<td>".$row['Date']."</td>";
     echo "<td>".$row['SDate']."</td>";
     echo "<td><a href='pdf.php?q=".$t."'><button>DOWNLOAD</button></td>";
+    echo "<td>
+    <form action='pdf.php' method='POST'><input type='file' name='memup'><button type='submit'>Upload</button></form>
+    </td>";
     echo "</tr>";
 }
 
 mysqli_close($sccon);
-
+}
+else {
+  header("Location:memlogin.php");
+}
 
 ?>
 
