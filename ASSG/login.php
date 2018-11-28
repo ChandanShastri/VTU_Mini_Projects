@@ -48,7 +48,7 @@ if(isset($_POST['user']))
  ?>
 
  <body><center>
-   <h3>Login</h3><br>
+   <h3>Administrator Login</h3><br>
   <form action="" method="POST">
     <input type="text" required placeholder="Username" name="user"><br><br>
     <input type="password" required placeholder="Password" name="pass"><br><br>

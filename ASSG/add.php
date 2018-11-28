@@ -66,7 +66,7 @@ $event="SELECT * FROM Assignments";
 $result = mysqli_query($sccon,$event);
 
 
-echo "<table class='table'> <tr><th>Assignment Name</th> <th>Subject</th> <th>Assignment Date</th> <th>Sub. Date</th> <th>PDF</th><th>Delete</th></tr>";
+echo "<table class='table'> <tr><th>Assignment Name</th> <th>Subject</th> <th>Assignment Date</th> <th>Sub. Date</th> <th>PDF</th><th>View Submissions</th><th>Delete</th></tr>";
 
 while($row = mysqli_fetch_array($result)) {
     echo "<tr>";
@@ -76,6 +76,7 @@ while($row = mysqli_fetch_array($result)) {
     echo "<td>".$row['Date']."</td>";
     echo "<td>".$row['SDate']."</td>";
     echo "<td><a href='pdf.php?q=".$t."'><button>DOWNLOAD</button></td>";
+    echo "<td><a href='submissions.php?v=".$t."'><button>Submissions</button></td>";
     echo "<td><a href='pdf.php?d=".$t."'><button>DELETE</button></td>";
     echo "</tr>";
 }

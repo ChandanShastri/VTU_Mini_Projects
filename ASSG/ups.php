@@ -22,8 +22,10 @@ if(isset($_SESSION['usn'])){
   else
   {
   echo "<br>Assignment already exists...!";
+
 $_SESSION['msg']='E';
 header("Location:view.php");
+
 }
 }
 else{
