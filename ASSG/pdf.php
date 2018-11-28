@@ -19,7 +19,10 @@ if($result->num_rows == 1) {
         echo $row['PDF'];
     }
   }
-  if(isset($_SESSION['admin'])){
+
+
+
+if(isset($_SESSION['admin'])){
 
 
   if(isset($_GET['d'])){

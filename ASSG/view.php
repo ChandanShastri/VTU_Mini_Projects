@@ -19,6 +19,12 @@
 <body><center><h3>All Assignments</h3><br>
 <?php
 session_start();
+if($_SESSION['msg']=='N'){
+  echo "<script>alert('Successfully Uploaded the Assignment')</script>";
+  $_SESSION['msg']='Y';
+}
+
+
 if(isset($_SESSION['usn'])){
 
 include "config.php";
@@ -29,7 +35,7 @@ $event="SELECT * FROM Assignments";
 $result = mysqli_query($sccon,$event);
 
 
-echo "<table class='table'> <tr><th>Assignment Name</th> <th>Subject</th> <th>Assignment Date</th> <th>Sub. Date</th> <th>PDF</th></tr>";
+echo "<table class='table'> <tr><th>Assignment Name</th> <th>Subject</th> <th>Assignment Date</th> <th>Sub. Date</th> <th>PDF</th><th>Upload Assignment</th></tr>";
 
 while($row = mysqli_fetch_array($result)) {
     echo "<tr>";
@@ -40,7 +46,7 @@ while($row = mysqli_fetch_array($result)) {
     echo "<td>".$row['SDate']."</td>";
     echo "<td><a href='pdf.php?q=".$t."'><button>DOWNLOAD</button></td>";
     echo "<td>
-    <form action='pdf.php' method='POST'><input type='file' name='memup'><button type='submit'>Upload</button></form>
+    <form action='ups.php' method='POST' enctype='multipart/form-data'><input type='file' name='memup' required><input type='hidden' name='subject' value='".$row['Subject']."'><input type='hidden' name='assgcode' value='".$t."'><button type='submit'>Upload</button></form>
     </td>";
     echo "</tr>";
 }

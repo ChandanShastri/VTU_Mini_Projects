@@ -30,7 +30,7 @@ if(isset($_POST['user']))
 {
   $user=$_POST['user'];
   $pass=$_POST['pass'];
-  $event="SELECT * FROM students where usn='".$user."' AND pass='".$pass."'";
+  $event="SELECT * FROM students where usn='".$user."' AND password='".$pass."'";
   //echo $event;
   $result = mysqli_query($sccon,$event);
   if(mysqli_num_rows($result)>0)
