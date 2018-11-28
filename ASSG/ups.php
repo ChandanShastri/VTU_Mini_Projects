@@ -11,7 +11,7 @@ session_start();
     $assg=$_POST['assgcode'];
 if(isset($_SESSION['usn'])){
   $ev="INSERT INTO uploads VALUES ('".$usn."','".$updf."','".$subject."','".$assg."')";
-echo $ev;
+
   $r = mysqli_query($sccon,$ev);
   if($r==1)
   {
@@ -20,7 +20,11 @@ echo $ev;
     $_SESSION['msg']='N';
   }
   else
+  {
   echo "<br>Assignment already exists...!";
+$_SESSION['msg']='E';
+header("Location:view.php");
+}
 }
 else{
   session_destroy();

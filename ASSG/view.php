@@ -23,6 +23,10 @@ if($_SESSION['msg']=='N'){
   echo "<script>alert('Successfully Uploaded the Assignment')</script>";
   $_SESSION['msg']='Y';
 }
+else if($_SESSION['msg']=='E'){
+  echo "<script>alert('Assignment is already Uploaded..!!!')</script>";
+  $_SESSION['msg']='Y';
+}
 
 
 if(isset($_SESSION['usn'])){
@@ -35,7 +39,7 @@ $event="SELECT * FROM Assignments";
 $result = mysqli_query($sccon,$event);
 
 
-echo "<table class='table'> <tr><th>Assignment Name</th> <th>Subject</th> <th>Assignment Date</th> <th>Sub. Date</th> <th>PDF</th><th>Upload Assignment</th></tr>";
+echo "<table class='table'> <tr><th>Assignment Name</th> <th>Subject</th> <th>Assignment Date</th> <th>Sub. Date</th> <th>Questions PDF</th><th>Upload Assignment</th></tr>";
 
 while($row = mysqli_fetch_array($result)) {
     echo "<tr>";
