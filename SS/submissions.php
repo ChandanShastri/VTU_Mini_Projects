@@ -26,11 +26,11 @@ if(isset($_SESSION['admin'])){
 
 if(isset($_GET['v'])){
 $assgcode=$_GET['v'];
-$event="SELECT students.name,uploads.usn,uploads.pdf,uploads.subject,uploads.assg_no,uploads.Marks FROM uploads INNER JOIN students ON uploads.usn=students.usn where uploads.assg_no='".$assgcode."'";
+$event="SELECT students.name,uploads.usn,uploads.pdf,uploads.subject,uploads.assg_no FROM uploads INNER JOIN students ON uploads.usn=students.usn where uploads.assg_no='".$assgcode."'";
 $result = mysqli_query($sccon,$event);
 
 
-echo "<table class='table'> <tr><th>Student Name</th> <th>USN</th> <th>Assignment Subject</th>  <th>PDF</th><th>Marks</th><th>Update Marks</th></tr>";
+echo "<table class='table'> <tr><th>Student Name</th> <th>USN</th> <th>Assignment Subject</th>  <th>PDF</th></tr>";
 
 while($row = mysqli_fetch_array($result)) {
     echo "<tr>";
@@ -38,10 +38,7 @@ while($row = mysqli_fetch_array($result)) {
     echo "<td>".$row['usn']."</td>";
     echo "<td>".$row['subject']."</td>";
     $t=$row['assg_no'];
-    $mm=$row['usn'];
     echo "<td><a href='pdf.php?ans=".$t."'><button>DOWNLOAD</button></td>";
-    echo "<td>".$row['Marks']."</td>";
-    echo "<td><form action='marks.php' method='POST'><input type='number' min='0' max='10' name='marks'><input type='hidden' name='assg' value='".$t."'><input type='hidden' name='usn' value='".$mm."'><button type='submit'>Update Marks</button></form></td>";
     echo "</tr>";
 }
 
@@ -55,7 +52,5 @@ else {
 }
 
 ?>
-</table>
-<a href='add.php'><button>Back</button></a></center>
 </body>
 </html>

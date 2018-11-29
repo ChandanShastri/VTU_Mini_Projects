@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Dept. Event Management System</title>
+    <title>Assignment Management System</title>
     <link rel="stylesheet" href="css/bs.css">
     <script src="js/bs.js"></script>
 </head>
@@ -30,25 +30,25 @@ if(isset($_POST['user']))
 {
   $user=$_POST['user'];
   $pass=$_POST['pass'];
-  $event="SELECT * FROM users where user='".$user."' AND pass='".$pass."'";
+  $event="SELECT * FROM students where usn='".$user."' AND password='".$pass."'";
   //echo $event;
   $result = mysqli_query($sccon,$event);
   if(mysqli_num_rows($result)>0)
   {
     session_start();
-    $_SESSION['admin']="Y";
-    header("Location:add.php");
+    $_SESSION['usn']=strtoupper($user);
+    header("Location:view.php");
 
   }
   else {
-    echo "<center><font color='red'><b>Username or Password is Wrong</b></font></center><br>";
+    echo "<center><font color='red'><b>USN or Password is Wrong</b></font></center><br>";
   }
 
 }
  ?>
 
  <body><center>
-   <h3>Administrator Login</h3><br>
+   <h3>Student Login</h3><br>
   <form action="" method="POST">
     <input type="text" required placeholder="Username" name="user"><br><br>
     <input type="password" required placeholder="Password" name="pass"><br><br>

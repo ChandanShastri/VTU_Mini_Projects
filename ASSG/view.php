@@ -18,6 +18,7 @@
 </nav>
 <body><center><h3>All Assignments</h3><br>
 <?php
+include "config.php";
 session_start();
 if($_SESSION['msg']=='N'){
   echo "<script>alert('Successfully Uploaded the Assignment')</script>";
@@ -30,9 +31,6 @@ else if($_SESSION['msg']=='E'){
 
 
 if(isset($_SESSION['usn'])){
-
-include "config.php";
-
 
 
 $event="SELECT * FROM Assignments";
@@ -55,17 +53,33 @@ while($row = mysqli_fetch_array($result)) {
     echo "</tr>";
 }
 
-mysqli_close($sccon);
+echo "</table><br><hr><br><h3>Your Submissions</h3><br>";
+
+$e="SELECT Assignments.ASSG_Name,uploads.usn,uploads.pdf,uploads.subject,uploads.assg_no,uploads.Marks FROM uploads INNER JOIN Assignments ON uploads.assg_no=Assignments.Time where uploads.usn='".$_SESSION['usn']."';";
+$r=mysqli_query($sccon,$e);
+
+//echo $e;
+
+echo "<table class='table'> <tr><th>Assignment Name</th> <th>Subject</th> <th>Assignment Marks</th> <th>Download PDF</th></tr>";
+
+while($row = mysqli_fetch_array($r)) {
+
+    echo "<tr>";
+    echo "<td>".$row['ASSG_Name']."</td>";
+    echo "<td>".$row['subject']."</td>";
+    echo "<td>".$row['Marks']."</td>";
+    echo "<td><a href='pdf.php?q=".$t."'><button>DOWNLOAD</button></td>";
+    echo "</tr>";
 }
+echo "</table>";
+
+}
+
 else {
   header("Location:memlogin.php");
 }
-
 ?>
 
-
-</table><br>
-<br>
 <a href='index.php'><button>Back</button></a></center>
 </body>
 </html>

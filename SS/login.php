@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Dept. Event Management System</title>
+    <title>Assignment Management System</title>
     <link rel="stylesheet" href="css/bs.css">
     <script src="js/bs.js"></script>
 </head>
