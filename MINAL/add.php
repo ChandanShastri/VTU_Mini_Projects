@@ -5,12 +5,12 @@
 
 <?php
 
-if(isset($_POST['Ename']))
+if(isset($_POST['name']))
 {
     include "config.php";
     $pdf = addslashes(file_get_contents($_FILES['pdf']['tmp_name']));
 
-$event="INSERT INTO Assignments (ASSG_Name,Subject,Date,SDate,PDF) VALUES ('".$_POST['Ename']."', '".$_POST['Esubject']."','".$_POST['Edate']."', '".$_POST['Etime']."', '".$pdf."')";
+$event="INSERT INTO Question_Bank (QP_Name,Subject,Sem,Date,PDF) VALUES ('".$_POST['name']."', '".$_POST['subject']."','".$_POST['sem']."','".$_POST['date']."','".$pdf."')";
 //echo $event;
 $result = mysqli_query($sccon,$event);
 if($result==1)
@@ -31,16 +31,21 @@ mysqli_close($sccon);
 
     <body><br><br><center>
         <h1> Add a Question Paper </h1>
-        <form action="#" method="POST" enctype="multipart/form-data">
+        <form action="" method="POST" enctype="multipart/form-data">
         <h4>
-        QP Name : <input name="Ename" type="text" required><br><br>
-        Subject : <select required name="Esubject">
+        QP Name : <input name="name" type="text" required><br><br>
+        Subject : <select required name="subject">
             <option value="SAN">SAN</option>
             <option value="DBMS">DBMS</option>
             <option value="WEB">WEB</option>
         </select><br><br>
-        Exam Date : <input name="Edate" type="date" required><br><br>
-        Uploaded Date : <input name="Etime" type="date" required><br><br>
+        Semester : <select required name="sem">
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select><br><br>
+        Exam Paper Date : <input name="date" type="date" required><br><br>
+
         <input type="file" name="pdf" >
 
        <br>
