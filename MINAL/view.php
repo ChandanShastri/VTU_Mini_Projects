@@ -3,6 +3,18 @@
   <link rel="stylesheet" href="css/bs.css">
    <script src="js/bs.js"></script>
 </head>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav">
+  <li class="nav-item active">
+    <a class="nav-link" href="index.php">Home<span class="sr-only">(current)</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="login.php">Login</a>
+  </li>
+</ul>
+</div>
+</nav>
 
 <body><div class="container"><center><br><br>
   <h2>Question Papers from all the Subjects</h2></center><br>
