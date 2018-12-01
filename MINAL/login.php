@@ -5,6 +5,10 @@
     <link rel="stylesheet" href="css/bs.css">
     <script src="js/bs.js"></script>
 </head>
+<style>
+body{
+background-image: linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+}</style>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="collapse navbar-collapse" id="navbarNav">
 <ul class="navbar-nav">

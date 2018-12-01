@@ -4,6 +4,10 @@
         <link rel="stylesheet" href="css/bs.css">
          <script src="js/bs.js"></script>
     </head>
+    <style>
+    body{
+    background-image: linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+    }</style>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
@@ -18,10 +22,11 @@
     </nav>
 <?php
 session_start();
+  include "config.php";
 if(isset($_SESSION['admin'])){
 if(isset($_POST['name']))
 {
-    include "config.php";
+
     $pdf = addslashes(file_get_contents($_FILES['pdf']['tmp_name']));
 
 $event="INSERT INTO Question_Bank (QP_Name,Subject,Sem,Date,PDF) VALUES ('".$_POST['name']."', '".$_POST['subject']."','".$_POST['sem']."','".$_POST['date']."','".$pdf."')";
@@ -29,12 +34,12 @@ $event="INSERT INTO Question_Bank (QP_Name,Subject,Sem,Date,PDF) VALUES ('".$_PO
 $result = mysqli_query($sccon,$event);
 if($result==1)
 {
-    echo "<br><b>Successfully Added the Question Paper</b>";
+    echo "<br><b><script>alert('Successfully Added the Question Paper');</script></b>";
 }
 else
 echo "<br>Question Paper already exists...!";
 
-mysqli_close($sccon);
+
 
 }
 }
@@ -69,13 +74,45 @@ else {
 
        <br>
     <hr>
-        <button class="btn btn-success" type="submit">Add Question Paper </button>
+        <button class="btn btn-warning" type="submit">Add Question Paper </button>
         </h4>
-        </form>
+      </form></div></div><div class="container"><br><br>
+        <center><h3>Question Papers</h3></center><br>
 
-        <a href="index.php"><button class="btn btn-blue" >Back</button></a>
-        </center>
-</div></div><br><br>
+        <?php
+
+        $event="SELECT * FROM Question_Bank";
+        $result = mysqli_query($sccon,$event);
+        //echo $event;
+
+
+        echo "<table class='table table-bordered'> <tr><th>Question Paper Name</th> <th>Subject</th> <th>Sem</th> <th>Exam Date</th> <th>PDF</th><th>Delete</th></tr>";
+
+        while($row = mysqli_fetch_array($result)) {
+            echo "<tr>";
+            echo "<td>".$row['QP_Name']."</td>";
+            $t=$row['Time'];
+            echo "<td>".$row['Subject']."</td>";
+            echo "<td>".$row['Sem']."</td>";
+            echo "<td>".$row['Date']."</td>";
+            echo "<td><a href='pdf.php?q=".$t."'><button class='btn btn-success'>DOWNLOAD</button></td>";
+            echo "<td><a href='pdf.php?d=".$t."'><button class='btn btn-danger'>DELETE</button></td>";
+            echo "</tr>";
+        }
+
+        mysqli_close($sccon);
+
+        ?>
+
+
+        </table><br></center>
+
+<center>
+
+
+        <a href="index.php"><button class="btn btn-dark">Back</button></a>
+      </center></div>
+<br><br>
     </body>
 
     </html>

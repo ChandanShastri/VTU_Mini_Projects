@@ -20,15 +20,16 @@
 session_start();
 session_destroy();
 
-
-
      ?>
 
     <body><br><br><center><div class="panel-primary">
+
         <h1> Question Bank </h1><br>
         <a href="login.php"><button class="btn btn-success">Manage Question Paper</button></a>&nbsp;
         <a href="view.php"><button class="btn btn-warning">View all Question Papers</button></a>
         </center>
+        <br><br>
+        <img src='img/1.webp' width='1366px' height="500px">
 </div>
     </body>
 
