@@ -35,21 +35,22 @@ echo "<br>Event Already Exists....!";
   <div class="card bg-light"><br>
     <h3> Add an Event </h3>
     <div class="card-body">
-    <form action="" method="POST" enctype="multipart/form-data">
-    Event Name : <input name="Ename" type="text" required><br><br>
-    Event Details :<br><br><textarea name="EDetails">Enter Event Details</textarea><br><br>
+    <form class="form" action="" method="POST" enctype="multipart/form-data">
 
-    Event Date : <input name="EDate" type="date" required><br><br>
-    Event Time : <input name="Etime" type="time" required><br><br>
-    Event Type : <select required name="Etype">
+        <div class="row">
+    Event Name : <input class="form-control" id='en' name="Ename" type="text" required><br></div>
+  <div class="row">  Event Details :<br><br><textarea class="form-control" name="EDetails">Enter Event Details</textarea></div>
+    Event Date : <input class="form-control" name="EDate" type="date" required>&nbsp;
+    Event Time : <input class="form-control input-inline" name="Etime" type="time" required><br><br>
+    Event Type : <select class="form-control" required name="Etype">
         <option value="Technical">Technical</option>
         <option value="Social">Social</option>
-    </select><br><br>
-    Event Branch : <select required name="Branch">
+    </select>&nbsp;
+    Event Branch : <select class="form-control" required name="Branch">
         <option value="ISE">ISE</option>
         <option value="Social">CSE</option>
-    </select><br><br>
-    Brochure : <input type="file" name="pdf" >
+    </select>&nbsp;
+    Brochure : <input class="form-control" type="file" name="pdf" >
 
    <br>
 <hr>
@@ -57,7 +58,7 @@ echo "<br>Event Already Exists....!";
 
     </form>
 
-    <a href="index.php"><button>Back</button></a>
+    <a href="index.php"><button class='btn btn-warning'>Back</button></a>
 </div></div></div>
 
 <div class="container">
@@ -80,8 +81,8 @@ while($row = mysqli_fetch_array($result)) {
     echo "<td>".$row['Event_Date']."</td>";
     echo "<td>".$row['Event_Time']."</td>";
     echo "<td>".$row['Branch']."</td>";
-    echo "<td><a href='pdf.php?q=".$t."'><button>DOWNLOAD BROCHURE</button></td>";
-    echo "<td><a href='pdf.php?d=".$t."'><button>DELETE</button></td>";
+    echo "<td><a href='pdf.php?q=".$t."'><button class='btn btn-success'>DOWNLOAD BROCHURE</button></td>";
+    echo "<td><a href='pdf.php?d=".$t."'><button class='btn btn-danger'>DELETE</button></td>";
     echo "</tr>";
 }
 
