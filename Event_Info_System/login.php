@@ -52,7 +52,7 @@ if(isset($_POST['user']))
   <form action="" method="POST">
     <input type="text" required placeholder="Username" name="user"><br><br>
     <input type="password" required placeholder="Password" name="pass"><br><br>
-    <button type="submit">Login</button>
+    <button type="submit" class='btn btn-success'>Login</button>
   </form>
 </center>
 </body>

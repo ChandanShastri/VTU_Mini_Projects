@@ -27,6 +27,7 @@
 
     <body><br><br><center>
         <h1>Event Management System </h1><br>
+        <img src='img/2.jpg' width='1366px' height="200px"><br><br>
         <a href="add.php"><button class="btn btn-primary">Event Manager</button></a>&nbsp;
         <a href="view.php"><button class="btn btn-success">View Upcoming Talks / Events</button></a><br><br>
         </center>
