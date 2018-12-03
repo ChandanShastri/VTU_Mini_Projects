@@ -26,7 +26,7 @@ session_destroy();
 
         <h1> Question Bank </h1><br>
         <a href="login.php"><button class="btn btn-success">Manage Question Paper</button></a>&nbsp;
-        <a href="view.php"><button class="btn btn-warning">View all Question Papers</button></a>
+        <a href="filter.php"><button class="btn btn-warning">View all Question Papers</button></a>
         </center>
         <br><br>
         <img src='img/1.webp' width='1366px' height="500px">

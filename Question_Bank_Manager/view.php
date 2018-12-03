@@ -20,8 +20,9 @@
   <h2>Question Papers from all the Subjects</h2></center><br>
 <?php
 include "config.php";
-
-$event="SELECT * FROM Question_Bank";
+$sem=$_POST['sem'];
+$sub=$_POST['sub'];
+$event="SELECT * FROM Question_Bank where Subject='".$sub."' and Sem=".$sem;
 $result = mysqli_query($sccon,$event);
 
 echo "<table class='table table-striped'> <tr><th>Question Paper</th> <th>Subject</th> <th>Sem</th> <th>Exam Date</th> <th>PDF</th></tr>";
