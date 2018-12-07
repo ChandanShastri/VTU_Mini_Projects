@@ -10,7 +10,7 @@ session_start();
     $updf = addslashes(file_get_contents($_FILES['memup']['tmp_name']));
     $assg=$_POST['assgcode'];
 if(isset($_SESSION['usn'])){
-  $ev="INSERT INTO uploads VALUES ('".$usn."','".$updf."','".$subject."','".$assg."')";
+  $ev="INSERT INTO uploads VALUES ('".$usn."','".$updf."','".$subject."','".$assg."',0)";
 
   $r = mysqli_query($sccon,$ev);
   if($r==1)
