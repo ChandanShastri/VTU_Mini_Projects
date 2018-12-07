@@ -8,7 +8,7 @@
 <?php
 
     include "config.php";
-
+error_reporting(0);
 if(isset($_POST['name']))
 {
 

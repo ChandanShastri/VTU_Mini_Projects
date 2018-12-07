@@ -19,6 +19,7 @@
 <body><center><h3>All Assignments</h3><br>
 <?php
 include "config.php";
+error_reporting(0);
 session_start();
 if($_SESSION['msg']=='N'){
   echo "<script>alert('Successfully Uploaded the Assignment')</script>";

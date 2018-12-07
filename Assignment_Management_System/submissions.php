@@ -21,6 +21,7 @@
 
 <?php
 session_start();
+error_reporting(0);
 if(isset($_SESSION['admin'])){
     include "config.php";
 

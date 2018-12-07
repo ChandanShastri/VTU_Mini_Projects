@@ -5,7 +5,7 @@
         <script src="js/bs.js"></script>
     </head>
     <?php
-    //error_reporting(0);
+    error_reporting(0);
     session_start();
     unset($_SESSION['admin']);
 

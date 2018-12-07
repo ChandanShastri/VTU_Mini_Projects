@@ -7,6 +7,7 @@
 
 <?php
 session_start();
+error_reporting(0);
 if(isset($_SESSION['admin'])){
     include "config.php";
 
@@ -20,10 +21,10 @@ $event="INSERT INTO Assignments (ASSG_Name,Subject,Date,SDate,PDF) VALUES ('".$_
 $result = mysqli_query($sccon,$event);
 if($result==1)
 {
-    echo "<br><b>Successfully Added the Assignment</b>";
+    echo "<br><center><b>Successfully Added the Assignment</b></center>";
 }
 else
-echo "<br>Assignment already exists...!";
+echo "<br><center><b>Something Went Wrong..!</b></center>";
 
 
 

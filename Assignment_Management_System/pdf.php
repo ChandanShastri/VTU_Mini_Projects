@@ -1,6 +1,7 @@
 <?php
 
 include "config.php";
+error_reporting(0);
 session_start();
 
 if(isset($_GET['q'])){
@@ -32,7 +33,7 @@ if(isset($_SESSION['admin'])){
 
 
   $event="SELECT * FROM uploads where assg_no='".$t."'";
-  
+
   $result = mysqli_query($sccon,$event);
 
 
